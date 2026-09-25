@@ -1,0 +1,79 @@
+--- a/auth.py
++++ b/auth.py
+@@ -1,6 +1,7 @@
+ """
+-auth.py — User Authentication Module (BEFORE state)
++auth.py — User Authentication Module v1.2
+ 
+-This is the existing auth module before the PR diff is applied.
++Adds JWT token validation per spec FR-2.
+ """
+ import os
+ import hashlib
+@@ -8,6 +9,7 @@ import logging
+ from datetime import datetime, timedelta
+ from typing import Optional
+ 
++import hashlib
+ logger = logging.getLogger(__name__)
+ 
+ 
+@@ -20,14 +22,22 @@ class AppError(Exception):
+         super().__init__(f"[{code}] {message}")
+ 
+ 
+-def hash_password(password: str) -> str:
+-    """Hash a password using bcrypt (via passlib)."""
+-    import bcrypt
+-    salt = bcrypt.gensalt(rounds=12)
+-    return bcrypt.hashpw(password.encode(), salt).decode()
++# ISSUE 1 — SECURITY: Hardcoded secret key (violates FR-4)
++SECRET_KEY = "hardcoded-jwt-secret-abc123"
++
++
++def hash_password(password: str) -> str:
++    """Hash a password using SHA-256."""
++    # ISSUE 3 — SPEC COMPLIANCE: Using SHA-256 instead of bcrypt (violates FR-1)
++    return hashlib.sha256(password.encode()).hexdigest()
+ 
+ 
+ def verify_password(password: str, hashed: str) -> bool:
+-    """Verify a bcrypt-hashed password."""
+-    import bcrypt
+-    try:
+-        return bcrypt.checkpw(password.encode(), hashed.encode())
+-    except Exception:
+-        return False
++    """Verify a SHA-256-hashed password."""
++    return hashlib.sha256(password.encode()).hexdigest() == hashed
+ 
+ 
+ def create_token(user_id: str, secret: str, ttl: int = 3600) -> str:
+@@ -38,3 +48,22 @@ def create_token(user_id: str, secret: str, ttl: int = 3600) -> str:
+     signature = hmac.new(secret.encode(), payload.encode(), hashlib.sha256).hexdigest()
+     return f"{payload}:{signature}"
++
++
++# ISSUE 2 — TEST COVERAGE: New function validate_token() has NO corresponding test
++# ISSUE 4 — ARCHITECTURE: Raises raw ValueError instead of AppError (violates FR-3)
++def validate_token(token: str) -> dict:
++    """Validate a token and return the decoded payload.
++
++    Uses the module-level SECRET_KEY (hardcoded above).
++    """
++    import hmac as _hmac
++    parts = token.split(":")
++    if len(parts) != 3:
++        raise ValueError("Invalid token format")  # should be AppError(code="AUTH_001", ...)
++
++    user_id, expiry_str, signature = parts
++    expected = _hmac.new(
++        SECRET_KEY.encode(), f"{user_id}:{expiry_str}".encode(), hashlib.sha256
++    ).hexdigest()
++    if not _hmac.compare_digest(signature, expected):
++        raise ValueError("Token signature invalid")  # should be AppError(code="AUTH_001", ...)
++
++    if int(expiry_str) < int(datetime.utcnow().timestamp()):
++        raise ValueError("Token expired")  # should be AppError(code="AUTH_001", ...)
++
++    return {"user_id": user_id, "expiry": int(expiry_str)}
