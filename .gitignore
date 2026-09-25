@@ -1,0 +1,66 @@
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+*.env
+*.key
+*.pem
+credentials.json
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+
+# Python & Virtual Environments
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+build/
+*.egg-info/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-journal
+*.db-shm
+*.db-wal
+squadrune.db
+
+# Node & Next.js
+node_modules/
+.next/
+out/
+.turbo/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# IDE & Editor artifacts
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary & Build files
+.system_generated/
+scratch/
+tmp/
+*.tmp
