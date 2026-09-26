@@ -17,3 +17,5 @@ fi
 
 export PYTHONPATH="${BACKEND_DIR}:${PYTHONPATH}"
 exec "${PYTHON_BIN}" "${BACKEND_DIR}/cli.py" "$@"
+
+# Universal CLI entrypoint
