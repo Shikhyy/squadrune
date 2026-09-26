@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# squadrune — Universal CLI launcher for Squadrune
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BACKEND_DIR="${SCRIPT_DIR}/backend"
+VENV_PYTHON="${BACKEND_DIR}/.venv/bin/python3"
+
+if [ -f "${VENV_PYTHON}" ]; then
+    PYTHON_BIN="${VENV_PYTHON}"
+elif command -v python3 >/dev/null 2>&1; then
+    PYTHON_BIN="python3"
+else
+    echo "Error: Python 3 not found." >&2
+    exit 1
+fi
+
+export PYTHONPATH="${BACKEND_DIR}:${PYTHONPATH}"
+exec "${PYTHON_BIN}" "${BACKEND_DIR}/cli.py" "$@"
