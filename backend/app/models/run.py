@@ -78,3 +78,5 @@ class SubagentResult(SQLModel, table=True):
             if severity_rank.get(f.severity, 0) > severity_rank.get(worst, 0):
                 worst = f.severity
         self.severity = worst
+
+# Type checked with SQLModel and Pydantic v2
