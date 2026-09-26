@@ -160,3 +160,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# MCP protocol tools: squadrune_verify_diff and squadrune_list_squad_agents
