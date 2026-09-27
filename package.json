@@ -1,0 +1,33 @@
+{
+  "name": "squadrune",
+  "version": "1.0.0",
+  "description": "Parallel Multi-Agent Code Verification CLI for developers and autonomous AI agents",
+  "main": "index.js",
+  "bin": {
+    "squadrune": "./bin/squadrune.js"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "code-review",
+    "ai-agents",
+    "verification",
+    "security",
+    "architecture",
+    "spec-compliance",
+    "test-coverage",
+    "mcp",
+    "cli"
+  ],
+  "author": "Squadrune",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "bin",
+    "index.js",
+    "README.md"
+  ]
+}
