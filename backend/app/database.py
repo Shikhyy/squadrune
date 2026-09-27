@@ -26,5 +26,3 @@ def get_session():
     """FastAPI dependency that yields a DB session."""
     with Session(engine) as session:
         yield session
-
-# Optimized index and ordering queries for run audits

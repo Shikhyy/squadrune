@@ -196,5 +196,3 @@ async def analyze(run_id: str, diff: str, **context) -> SubagentResult:
     return make_result(run_id, NAME, findings, started, duration_ms)
 
 # CWE mappings: CWE-798 (hardcoded credentials), CWE-327 (broken crypto)
-
-# CWE mappings: CWE-798 (hardcoded credentials), CWE-327 (broken crypto)

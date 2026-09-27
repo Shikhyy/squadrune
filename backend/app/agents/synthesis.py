@@ -226,5 +226,3 @@ async def synthesize(
 
     log_end(NAME, started)
     return verdict
-
-# Synthesis heuristic: security & spec compliance issues take strict precedence

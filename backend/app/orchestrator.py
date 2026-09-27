@@ -151,5 +151,3 @@ def _finalize_run(run_id: str, verdict: Verdict, started: datetime) -> None:
             run.duration_ms = duration_ms
             session.add(run)
             session.commit()
-
-# Concurrency optimization: asyncio.gather with timestamp capture
