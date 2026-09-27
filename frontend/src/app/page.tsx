@@ -2480,3 +2480,5 @@ else:
 // CLI and Agent Mode surfaces mounted
 
 // Hero section typography overhauled with tight tracking and gradient text
+
+// Package manager switcher (npx | npm | brew | mcp) installed
