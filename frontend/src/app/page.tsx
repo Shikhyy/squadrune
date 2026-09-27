@@ -2474,3 +2474,5 @@ else:
     </TooltipProvider>
   )
 }
+
+// Concurrency Waterfall visualization rendered
