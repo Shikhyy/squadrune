@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 64" fill="none">
+  <defs>
+    <!-- PANTONE 19-4033 TCX Poseidon to Midnight -->
+    <linearGradient id="poseidonGrad" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1B4D70" />
+      <stop offset="45%" stop-color="#123955" />
+      <stop offset="100%" stop-color="#081A28" />
+    </linearGradient>
+
+    <!-- PANTONE 15-4427 TCX Norse Blue Glow -->
+    <linearGradient id="norseGrad" x1="16" y1="12" x2="48" y2="52" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#7DC0D9" />
+      <stop offset="50%" stop-color="#4CA5C7" />
+      <stop offset="100%" stop-color="#2D7B9B" />
+    </linearGradient>
+
+    <!-- PANTONE 17-1449 TCX Orange-Red Core -->
+    <linearGradient id="orangeGrad" x1="32" y1="16" x2="32" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F27958" />
+      <stop offset="40%" stop-color="#E65A33" />
+      <stop offset="100%" stop-color="#C34121" />
+    </linearGradient>
+
+    <filter id="logoGlow" x="18" y="14" width="28" height="36" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Left Icon Emblem: Rune Shield -->
+  <g transform="translate(4, 0)">
+    <polygon
+      points="32,3 58,16 58,44 32,61 6,44 6,16"
+      fill="url(#poseidonGrad)"
+      stroke="#4CA5C7"
+      stroke-width="2.5"
+      stroke-linejoin="round"
+    />
+    <polygon
+      points="32,9 52,19 52,41 32,54 12,41 12,19"
+      fill="none"
+      stroke="#4CA5C7"
+      stroke-width="1.2"
+      stroke-opacity="0.45"
+      stroke-dasharray="2.5 1.5"
+    />
+    <circle cx="32" cy="11" r="2.2" fill="#4CA5C7" />
+    <circle cx="50" cy="40" r="2.2" fill="#4CA5C7" />
+    <circle cx="32" cy="52" r="2.2" fill="#4CA5C7" />
+    <circle cx="14" cy="40" r="2.2" fill="#4CA5C7" />
+    <line x1="32" y1="13" x2="32" y2="20" stroke="#4CA5C7" stroke-width="1.8" stroke-linecap="round" />
+    <line x1="50" y1="40" x2="41" y2="36" stroke="#4CA5C7" stroke-width="1.8" stroke-linecap="round" />
+    <line x1="14" y1="40" x2="23" y2="36" stroke="#4CA5C7" stroke-width="1.8" stroke-linecap="round" />
+    <line x1="32" y1="52" x2="32" y2="44" stroke="#4CA5C7" stroke-width="1.8" stroke-linecap="round" />
+    <path
+      d="M34,17 L22,34 L31,34 L28,47 L42,30 L33,30 Z"
+      fill="url(#orangeGrad)"
+      filter="url(#logoGlow)"
+    />
+    <path
+      d="M34,17 L22,34 L31,34 L28,47 L42,30 L33,30 Z"
+      stroke="#FFFFFF"
+      stroke-width="0.8"
+      stroke-opacity="0.9"
+    />
+  </g>
+
+  <!-- Wordmark Text -->
+  <text x="80" y="38" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="26" font-weight="800" fill="#FFFFFF" letter-spacing="-0.5">
+    Squad<tspan fill="#4CA5C7">rune</tspan>
+  </text>
+  <text x="81" y="52" font-family="'JetBrains Mono', monospace" font-size="9" font-weight="600" fill="#7DC0D9" letter-spacing="1.5">
+    PARALLEL VERIFICATION LAYER
+  </text>
+</svg>
