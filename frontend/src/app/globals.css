@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500;1,6..72,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS variables ─────────────────────────── */
+:root {
+  --bg:      #07131D; /* PANTONE 19-4033 TCX Poseidon Deep Canvas */
+  --surface: #0B2233;
+  --border:  #15364F;
+  --text:    #f1f5f9;
+  --muted:   #7DC0D9;
+  --pantone-poseidon: #123955; /* PANTONE 19-4033 TCX (Dark Navy Blue) */
+  --pantone-norse:    #4CA5C7; /* PANTONE 15-4427 TCX (Light Blue) */
+  --pantone-orangered: #C34121; /* PANTONE 17-1449 TCX (Orange-Red) */
+  --pantone-orangered-bright: #E65A33;
+}
+
+/* ─── Base reset ─────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: #07131D;
+  color: #f1f5f9;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── Editorial Serif ────────────────────────── */
+.font-serif-italic {
+  font-family: 'Newsreader', 'Playfair Display', 'Instrument Serif', 'Georgia', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ─── Dot Grid Backgrounds ───────────────────── */
+.bg-dot-grid-dark {
+  background-image: radial-gradient(rgba(76, 165, 199, 0.18) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-dot-grid-subtle {
+  background-image: radial-gradient(rgba(76, 165, 199, 0.14) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-dot-grid-light {
+  background-image: radial-gradient(rgba(18, 57, 85, 0.25) 1.2px, transparent 1.2px);
+  background-size: 22px 22px;
+}
+
+/* ─── Hero Pantone Wave Glow ─────────────────── */
+.bg-hero-glow {
+  background: radial-gradient(ellipse at 50% 90%, rgba(76, 165, 199, 0.28) 0%, rgba(18, 57, 85, 0.5) 40%, rgba(7, 19, 29, 0.95) 80%, #07131D 100%);
+}
+
+.bg-hero-glow-alt {
+  background: radial-gradient(circle at 50% 40%, rgba(76, 165, 199, 0.22) 0%, rgba(18, 57, 85, 0.3) 40%, transparent 70%);
+}
+
+/* ─── Hatch Patterns for Isometric Box ───────── */
+.hatch-pattern {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.12) 1.5px,
+    transparent 1.5px,
+    transparent 5px
+  );
+}
+
+.hatch-pattern-dark {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1.5px,
+    transparent 1.5px,
+    transparent 5px
+  );
+}
+
+/* ─── Chip Embossing ─────────────────────────── */
+.chip-emboss {
+  background: linear-gradient(145deg, #161b26, #0d111a);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── Monospace ──────────────────────────────── */
+code, pre, textarea.mono, .font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, 'Cascadia Code',
+    'Source Code Pro', Menlo, Consolas, monospace;
+}
+
+/* ─── Scrollbar ──────────────────────────────── */
+.log-scroll::-webkit-scrollbar          { width: 4px; height: 4px; }
+.log-scroll::-webkit-scrollbar-track    { background: transparent; }
+.log-scroll::-webkit-scrollbar-thumb    { background: #3f3f46; border-radius: 2px; }
+.log-scroll::-webkit-scrollbar-thumb:hover { background: #52525b; }
+
+/* ─── Agent card pulse animation ─────────────── */
+@keyframes agent-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+.agent-running {
+  animation: agent-pulse 2s ease-in-out infinite;
+}
+
+/* ─── Gradient text ──────────────────────────── */
+.gradient-text {
+  background: linear-gradient(90deg, #E65A33 0%, #4CA5C7 50%, #7DC0D9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-norse {
+  background: linear-gradient(90deg, #4CA5C7 0%, #7DC0D9 60%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Glassmorphism nav ──────────────────────── */
+.glass-nav {
+  background: rgba(7, 19, 29, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(76, 165, 199, 0.16);
+}
+
+/* ─── Button glow ────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #E65A33 0%, #C34121 100%);
+  box-shadow: 0 4px 24px rgba(230, 90, 51, 0.35), 0 1px 2px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: linear-gradient(135deg, #F0714E 0%, #E65A33 100%);
+  box-shadow: 0 6px 32px rgba(230, 90, 51, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-norse {
+  background: linear-gradient(135deg, #4CA5C7 0%, #123955 100%);
+  box-shadow: 0 4px 20px rgba(76, 165, 199, 0.3);
+  color: #ffffff;
+  font-weight: 600;
+  border: 1px solid rgba(125, 192, 217, 0.3);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-norse:hover:not(:disabled) {
+  background: linear-gradient(135deg, #7DC0D9 0%, #4CA5C7 100%);
+  box-shadow: 0 6px 28px rgba(76, 165, 199, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  background: #27272a;
+  box-shadow: none;
+  color: #52525b;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ─── Input focus ────────────────────────────── */
+.input-dark {
+  background: rgba(39,39,42,0.6);
+  border: 1px solid rgba(63,63,70,0.7);
+  color: #e4e4e7;
+  transition: border-color 0.15s, background 0.15s, box-shadow 0.15s;
+}
+
+.input-dark:focus {
+  outline: none;
+  border-color: rgba(76, 165, 199, 0.6);
+  background: rgba(39, 39, 42, 0.9);
+  box-shadow: 0 0 0 3px rgba(76, 165, 199, 0.15);
+}
+
+.input-dark::placeholder {
+  color: #52525b;
+}
+
+/* ─── Card ───────────────────────────────────── */
+.card {
+  background: #111113;
+  border: 1px solid #1e1e22;
+  border-radius: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+}
+
+/* ─── Pill badge ─────────────────────────────── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+}
+
+/* ─── Diff syntax styling ─────────────────────── */
+.diff-line-add {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: #6ee7b7;
+  border-left: 2px solid #10b981;
+}
+
+.diff-line-del {
+  background-color: rgba(239, 68, 68, 0.12);
+  color: #fca5a5;
+  border-left: 2px solid #ef4444;
+}
+
+.diff-line-hunk {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: #93c5fd;
+  border-left: 2px solid #3b82f6;
+}
+
+.diff-line-normal {
+  color: #a1a1aa;
+}
+
+/* ─── Waterfall bar animation ─────────────────── */
+@keyframes bar-glow {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 4px currentColor); }
+  50% { opacity: 1; filter: drop-shadow(0 0 10px currentColor); }
+}
+
+.waterfall-bar-active {
+  animation: bar-glow 1.5s ease-in-out infinite;
+}
+
