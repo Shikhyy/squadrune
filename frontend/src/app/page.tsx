@@ -2476,3 +2476,5 @@ else:
 }
 
 // Concurrency Waterfall visualization rendered
+
+// CLI and Agent Mode surfaces mounted
